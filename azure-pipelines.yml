@@ -36,8 +36,6 @@ steps:
     mavenPomFile: 'pom.xml'
     goals: 'install'
     artifactoryResolverService: 'BQX'
-    targetResolveReleaseRepo: 'demo-class-libs-snapshot'
-    targetResolveSnapshotRepo: 'demo-class-libs-snapshot'
     artifactoryDeployService: 'BQX'
     targetDeployReleaseRepo: 'demo-class-libs-snapshot'
     targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
