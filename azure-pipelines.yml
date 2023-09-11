@@ -1,4 +1,5 @@
 # Maven
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -29,3 +30,15 @@ steps:
     effectivePomSkip: false
 
     sonarQubeRunAnalysis: false
+    
+- task: JFrogMaven@1
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryResolverService: 'BQX'
+    targetResolveReleaseRepo: 'demo-class-libs-snapshot'
+    targetResolveSnapshotRepo: 'demo-class-libs-snapshot'
+    artifactoryDeployService: 'BQX'
+    targetDeployReleaseRepo: 'demo-class-libs-snapshot'
+    targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
+    javaHomeOption: 'JDKVersion'
