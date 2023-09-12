@@ -48,10 +48,10 @@ steps:
       {
         "files": [
           {
-            "pattern": "**/target/*",
+            "pattern": "**/target/*.war",
             "target": "demo-class-libs-snapshot"
           }
         ]
       }
-    failNoOp: true
+    failNoOp: false
     javaHomeOption: 'JDKVersion'
