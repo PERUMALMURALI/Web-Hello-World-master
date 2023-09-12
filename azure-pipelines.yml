@@ -39,4 +39,19 @@ steps:
         artifactoryDeployService: 'azure'
         targetDeployReleaseRepo: 'demo-class-libs-snapshot'
         targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
-        javaHomeOption: 'JDKVersion'
+- task: JFrogGenericArtifacts@1
+  inputs:
+    command: 'Upload'
+    connection: 'azure'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "**/target/*",
+            "target": "demo-class-libs-snapshot"
+          }
+        ]
+      }
+    failNoOp: true
+    javaHomeOption: 'JDKVersion'
