@@ -46,3 +46,11 @@ steps:
       }
     failNoOp: false
 
+- task: JFrogMaven@1
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryDeployService: 'Maven1'
+    targetDeployReleaseRepo: 'mavan-libs-release'
+    targetDeploySnapshotRepo: 'mavan-libs-release'
+    javaHomeOption: 'JDKVersion'
