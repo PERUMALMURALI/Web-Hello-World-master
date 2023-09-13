@@ -1,6 +1,4 @@
 # Maven
-
-
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -32,11 +30,18 @@ steps:
 
     sonarQubeRunAnalysis: false
 
-- task: JFrogMaven@1
+- task: JFrogGenericArtifacts@1
   inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'install'
-    artifactoryDeployService: 'Maven1'
-    targetDeployReleaseRepo: 'Maven1'
-    targetDeploySnapshotRepo: 'Maven1'
-    javaHomeOption: 'JDKVersion'
+    command: 'Upload'
+    connection: 'Maven1'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "**/target/*",
+            "target": "Maven1/"
+          }
+        ]
+      }
+    failNoOp: true
