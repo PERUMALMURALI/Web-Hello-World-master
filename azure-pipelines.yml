@@ -39,18 +39,10 @@ steps:
       {
         "files": [
           {
-            "pattern": "**/target/*",
+            "pattern": "**/target/*.war",
             "target": "Maven1/"
           }
         ]
       }
     failNoOp: false
 
-- task: JFrogMaven@1
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'install'
-    artifactoryDeployService: 'Maven1'
-    targetDeployReleaseRepo: 'Maven1'
-    targetDeploySnapshotRepo: 'Maven1'
-    javaHomeOption: 'JDKVersion'
