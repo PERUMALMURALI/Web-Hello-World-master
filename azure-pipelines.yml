@@ -33,9 +33,9 @@ steps:
 
 - task: JFrogMaven@1
   inputs:
-        mavenPomFile: 'pom.xml'
-        goals: 'install'
-        artifactoryResolverService: 'azure'
-        artifactoryDeployService: 'azure'
-        targetDeployReleaseRepo: 'demo-class-libs-snapshot'
-        targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryDeployService: 'azure'
+    targetDeployReleaseRepo: 'demo-class-libs-snapshot'
+    targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
+    javaHomeOption: 'JDKVersion'
