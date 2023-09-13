@@ -44,4 +44,4 @@ steps:
           }
         ]
       }
-    failNoOp: true
+    failNoOp: false
