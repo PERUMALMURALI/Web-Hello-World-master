@@ -39,3 +39,19 @@ steps:
     targetDeployReleaseRepo: 'libs-release'
     targetDeploySnapshotRepo: 'libs-release'
     javaHomeOption: 'JDKVersion'
+
+- task: JFrogGenericArtifacts@1
+  inputs:
+    command: 'Upload'
+    connection: 'New'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "**/target/*.war",
+            "target": "hello-world-maven"
+          }
+        ]
+      }
+    failNoOp: true
