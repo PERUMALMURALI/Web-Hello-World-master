@@ -50,8 +50,8 @@ steps:
         "files": [
           {
             "pattern": "**/target/*.war",
-            "target": "hello-world-maven"
+            "target": "libs-release/io/happycoding/hello-world-maven/"
           }
         ]
       }
-    failNoOp: true
+    failNoOp: false
