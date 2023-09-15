@@ -30,3 +30,12 @@ steps:
     effectivePomSkip: false
 
     sonarQubeRunAnalysis: false
+
+- task: JFrogMaven@1
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryDeployService: 'New'
+    targetDeployReleaseRepo: 'libs-release'
+    targetDeploySnapshotRepo: 'libs-release'
+    javaHomeOption: 'JDKVersion'
